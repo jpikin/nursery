@@ -4,12 +4,12 @@ import java.util.List;
 public class Hamsters extends Pets{
     private String name;
     List commands;
-    private Date dateOfBirth;
 
-    Hamsters(String name, List commands, Date dateOfBirth) {
+
+    Hamsters(String name, List commands) {
         this.name = name;
         this.commands = commands;
-        this.dateOfBirth = dateOfBirth;
+
     }
     public void addNewCommand(String newCommand){
         commands.add(newCommand);
@@ -17,7 +17,5 @@ public class Hamsters extends Pets{
     public String getName(){
         return this.name;
     }
-    public Date getDateOfBirth(){
-        return this.dateOfBirth;
-    }
+
 }

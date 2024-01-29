@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -66,13 +67,13 @@ public class Menu {
         int newPetInput = scanner.nextInt();
         switch (newPetInput){
             case 1:
-                Cats newCat = new Cats("noName", new ArrayList<>(), new Date());
+                Cats newCat = new Cats("noName", new ArrayList<>());
                 break;
             case 2:
-                Dogs newDog = new Dogs("noName", new ArrayList<>(), new Date());
+                Dogs newDog = new Dogs("noName", new ArrayList<>());
                 break;
             case 3:
-                Hamsters newHamster = new Hamsters("noName", new ArrayList<>(), new Date());
+                Hamsters newHamster = new Hamsters("noName", new ArrayList<>());
                 break;
             case 4:
                 subMenuAddNewAnimal();
