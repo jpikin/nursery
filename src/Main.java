@@ -1,5 +1,12 @@
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
+        List animalList = new ArrayList();
+        Cats cat1 = new Cats("Barsik", List.of("Come here", "go to eat"), LocalDate.from()));
         Menu menu = new Menu();
         menu.menu();
     }
