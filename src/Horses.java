@@ -1,2 +1,2 @@
-public class Horses {
+public class Horses extends PackAnimals{
 }

@@ -1,2 +1,2 @@
-public class Hamsters {
+public class Hamsters extends Pets{
 }
