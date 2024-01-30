@@ -4,12 +4,12 @@ import java.util.Scanner;
 public class Animals {
     private String type;
     private String name;
-    private List commands;
+    List<String> commands;
 
-    public Animals(String name, List commands) {
+    public Animals(String name, List<String> commands) {
 
         this.name = name;
-        this.commands =  commands;
+        this.commands = commands;
 
     }
 
@@ -31,7 +31,6 @@ public class Animals {
                 Scanner sc2 = new Scanner(System.in);
                 System.out.println("Введите новую команду");
                 commands.add(sc2.nextLine());
-                System.out.println(commands);
                 addNewCommand();
                 break;
             case 2:

@@ -9,12 +9,12 @@ public class Menu {
         System.out.println();
         System.out.println("Выберите один из пунктов меню:");
         System.out.println("1. Добавить новое животное");
-        System.out.println("2. Вывести список животных питомника");
+        System.out.println("2. Работа с реестром");
         System.out.println("3. Выход");
         int menuInput = scanner.nextInt();
         switch (menuInput) {
             case 1:
-                createAnimal();;
+                createAnimal();
                 break;
             case 2:
                 subMenuAnimalList();
@@ -100,15 +100,39 @@ public class Menu {
                 break;
         }
     }
-    public void subMenuAnimalList(){
-        System.out.flush();
+    public void subMenuAnimalList() {
         System.out.println("Реестр домашних животных");
-        System.out.println("Всего животных в питомнике: " + Counter.count);
+        System.out.println("------------------------");
         System.out.println();
-        for (int i = 0; i < AnimalList.animalList.size(); i++) {
-            System.out.println(i + 1 + ". " + AnimalList.animalList.get(i));
+        System.out.println("1. Вывести всех животных в питомнике");
+        System.out.println("2. Обучить животное новым командам");
+        System.out.println("3. Назад");
+        int subMenuChoise = scanner.nextInt();
+        switch (subMenuChoise){
+            case 1:
+                System.out.println("Всего животных в питомнике: " + Counter.count);
+                System.out.println();
+                for (int i = 0; i < AnimalList.animalList.size(); i++) {
+                    System.out.println(i + 1 + ". " + AnimalList.animalList.get(i));
+                }
+                subMenuAnimalList();
+                break;
+            case 2:
+                System.out.println("Выберите животное для обучения:");
+                for (int i = 0; i < AnimalList.animalList.size(); i++) {
+                    System.out.println(i + 1 + ". " + AnimalList.animalList.get(i));
+                }
+                int choiseLirningAnimal = scanner.nextInt();
+                AnimalList.animalList.get(choiseLirningAnimal-1).addNewCommand();
+                subMenuAnimalList();
+                break;
+            case 3:
+                menu();
+                break;
+            default:
+                System.out.println("Неправильный ввод");
+                subMenuAnimalList();
+                break;
         }
-        menu();
-
     }
 }

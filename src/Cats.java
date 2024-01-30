@@ -2,7 +2,7 @@ import java.util.List;
 
 public class Cats extends Pets{
     String type = "Кошка";
-    Cats(String name, List commands) {
+    Cats(String name, List<String> commands) {
 
         super(name, commands);
 
