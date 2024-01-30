@@ -51,7 +51,5 @@ public List getCommands() {
     public String getType() {
         return type;
     }
-    public String toString() {
-        return type + ": " + getName() + ", Знает команды: " + getCommands();
-    }
+
 }

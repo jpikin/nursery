@@ -46,6 +46,7 @@ public class Menu {
                 newCat.addNewCommand();
                 AnimalList.addAnimal(newCat);
                 System.out.println("Новое животное добавлено");
+                System.out.println();
                 menu();
                 break;
             case 2:
@@ -54,6 +55,7 @@ public class Menu {
                 newDog.addNewCommand();
                 AnimalList.addAnimal(newDog);
                 System.out.println("Новое животное добавлено");
+                System.out.println();
                 menu();
                 break;
             case 3:
@@ -62,6 +64,7 @@ public class Menu {
                 newHamster.addNewCommand();
                 AnimalList.addAnimal(newHamster);
                 System.out.println("Новое животное добавлено");
+                System.out.println();
                 menu();
                 break;
             case 4:
@@ -70,6 +73,7 @@ public class Menu {
                 newHorse.addNewCommand();
                 AnimalList.addAnimal(newHorse);
                 System.out.println("Новое животное добавлено");
+                System.out.println();
                 menu();
                 break;
             case 5:
@@ -78,6 +82,7 @@ public class Menu {
                 newDonkey.addNewCommand();
                 AnimalList.addAnimal(newDonkey);
                 System.out.println("Новое животное добавлено");
+                System.out.println();
                 menu();
                 break;
             case 6:
@@ -87,10 +92,11 @@ public class Menu {
                 AnimalList.addAnimal(newCamel);
                 System.out.println("Новое животное добавлено");
                 Counter.addCount();
+                System.out.println();
                 menu();
                 break;
             case 7:
-                System.out.flush();
+                System.out.println();
                 menu();
                 break;
             default:
@@ -101,6 +107,7 @@ public class Menu {
         }
     }
     public void subMenuAnimalList() {
+        System.out.println();
         System.out.println("Реестр домашних животных");
         System.out.println("------------------------");
         System.out.println();
