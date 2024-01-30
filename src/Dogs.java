@@ -5,7 +5,7 @@ import java.util.List;
 public class Dogs extends Pets{
     String type = "Собака";
 
-    Dogs(String type, String name, List commands) {
+    Dogs(String name, List commands) {
         super(name, commands);
     }
     public String toString() {

@@ -49,7 +49,7 @@ public class Menu {
                 menu();
                 break;
             case 2:
-                Dogs newDog = new Dogs("Собака","noName", new ArrayList<>());
+                Dogs newDog = new Dogs("noName", new ArrayList<>());
                 newDog.addName();
                 newDog.addNewCommand();
                 AnimalList.addAnimal(newDog);
@@ -57,7 +57,7 @@ public class Menu {
                 menu();
                 break;
             case 3:
-                Hamsters newHamster = new Hamsters("Хомяк","noName", new ArrayList<>());
+                Hamsters newHamster = new Hamsters("noName", new ArrayList<>());
                 newHamster.addName();
                 newHamster.addNewCommand();
                 AnimalList.addAnimal(newHamster);
@@ -86,6 +86,7 @@ public class Menu {
                 newCamel.addNewCommand();
                 AnimalList.addAnimal(newCamel);
                 System.out.println("Новое животное добавлено");
+                Counter.addCount();
                 menu();
                 break;
             case 7:
@@ -100,10 +101,12 @@ public class Menu {
         }
     }
     public void subMenuAnimalList(){
+        System.out.flush();
         System.out.println("Реестр домашних животных");
-
+        System.out.println("Всего животных в питомнике: " + Counter.count);
+        System.out.println();
         for (int i = 0; i < AnimalList.animalList.size(); i++) {
-            System.out.println(AnimalList.animalList.get(i));
+            System.out.println(i + 1 + ". " + AnimalList.animalList.get(i));
         }
         menu();
 
