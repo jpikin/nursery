@@ -1,3 +1,9 @@
+import java.util.List;
+
 public class PackAnimals extends Animals{
-    String type = "PackAnimal";
+
+    public PackAnimals(String name, List commands) {
+        super(name, commands);
+
+    }
 }

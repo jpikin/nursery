@@ -1,21 +1,15 @@
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
+
 public class Hamsters extends Pets{
-    private String name;
-    List commands;
 
+    String type = "Хомяк";
+    Hamsters(String type, String name, List commands) {
 
-    Hamsters(String name, List commands) {
-        this.name = name;
-        this.commands = commands;
-
+        super(name, commands);
     }
-    public void addNewCommand(String newCommand){
-        commands.add(newCommand);
+    public String toString() {
+        return type + ": " + getName() + ", Знает команды: " + getCommands();
     }
-    public String getName(){
-        return this.name;
-    }
-
 }
