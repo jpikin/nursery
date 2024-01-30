@@ -19,7 +19,8 @@ public class Animals {
         String newName = sc.nextLine();
         this.name = newName;
     }
-    public void addNewCommand(){
+
+    public void addNewCommand() {
         int answer;
         Scanner sc = new Scanner(System.in);
         System.out.println("Хотите ввести новую команду?");
@@ -39,15 +40,17 @@ public class Animals {
                 System.out.println("Неправильный ввод");
                 addNewCommand();
                 break;
-            }
         }
-public List getCommands() {
+    }
+
+    public List getCommands() {
         return commands;
-}
+    }
 
     public String getName() {
         return this.name;
     }
+
     public String getType() {
         return type;
     }

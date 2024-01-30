@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Menu {
     Scanner scanner = new Scanner(System.in);
+
     public void menu() {
         System.out.println("Реестр домашних животных");
         System.out.println("-------------------------");
@@ -39,7 +40,7 @@ public class Menu {
         System.out.println("6. Верблюд");
         System.out.println("7.Возврат в предыдущее меню");
         int newPetInput = scanner.nextInt();
-        switch (newPetInput){
+        switch (newPetInput) {
             case 1:
                 Cats newCat = new Cats("noName", new ArrayList<>());
                 newCat.addName();
@@ -106,6 +107,7 @@ public class Menu {
                 break;
         }
     }
+
     public void subMenuAnimalList() {
         System.out.println();
         System.out.println("Реестр домашних животных");
@@ -115,7 +117,7 @@ public class Menu {
         System.out.println("2. Обучить животное новым командам");
         System.out.println("3. Назад");
         int subMenuChoise = scanner.nextInt();
-        switch (subMenuChoise){
+        switch (subMenuChoise) {
             case 1:
                 System.out.println("Всего животных в питомнике: " + Counter.count);
                 System.out.println();
@@ -130,7 +132,7 @@ public class Menu {
                     System.out.println(i + 1 + ". " + AnimalList.animalList.get(i));
                 }
                 int choiseLirningAnimal = scanner.nextInt();
-                AnimalList.animalList.get(choiseLirningAnimal-1).addNewCommand();
+                AnimalList.animalList.get(choiseLirningAnimal - 1).addNewCommand();
                 subMenuAnimalList();
                 break;
             case 3:

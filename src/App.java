@@ -18,7 +18,7 @@ public class App {
         commands2.add("Sit");
         commands2.add("Come here");
         Dogs dog1 = new Dogs("Bobik", commands2);
-        Hamsters hamster1 = new Hamsters("Rudolph",commands3);
+        Hamsters hamster1 = new Hamsters("Rudolph", commands3);
         commands4.add("allure");
         commands4.add("Come here");
         Horses horse1 = new Horses("Bella", commands4);
@@ -39,9 +39,5 @@ public class App {
         Counter.count = AnimalList.animalList.size();
         Menu menu = new Menu();
         menu.menu();
-
-
-
-
     }
 }

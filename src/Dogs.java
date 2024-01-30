@@ -3,16 +3,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Dogs extends Pets{
+public class Dogs extends Pets {
     String type = "Собака";
 
     Dogs(String name, List<String> commands) {
         super(name, commands);
     }
+
     public String toString() {
         return type + ": " + getName() + ", Знает команды: " + getCommands();
     }
-    public void addNewCommand(){
+
+    public void addNewCommand() {
         int answer;
         Scanner sc = new Scanner(System.in);
         System.out.println("Хотите ввести новую команду?");

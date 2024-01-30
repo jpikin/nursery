@@ -5,7 +5,7 @@ public class AnimalList {
 
     static List<Animals> animalList = new ArrayList<Animals>();
 
-    public static void addAnimal(Animals a){
+    public static void addAnimal(Animals a) {
         animalList.add(a);
     }
 
