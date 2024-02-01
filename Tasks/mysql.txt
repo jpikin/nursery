@@ -1,0 +1,107 @@
+CREATE DATABASE Друзья_человека;
+USE  Друзья_человека;
+CREATE TABLE Type_animals (
+	type_id INT PRIMARY KEY AUTO_INCREMENT,
+	type VARCHAR(30) NOT NULL
+    );
+CREATE TABLE Cats (
+	cat_id INT PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(30) NOT NULL,
+	commands VARCHAR(300),
+	date_of_birth DATE,
+	type_id INT,
+	FOREIGN KEY (type_id) REFERENCES Type_animals(type_id)
+    );
+CREATE TABLE Dogs (
+	Dog_id INT PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(30) NOT NULL,
+	commands VARCHAR(300),
+	date_of_birth DATE,
+	type_id INT,
+	FOREIGN KEY (type_id) REFERENCES Type_animals(type_id)
+    );
+CREATE TABLE Humsters (
+	humster_id INT PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(30) NOT NULL,
+	commands VARCHAR(300),
+	date_of_birth DATE,
+	type_id INT,
+	FOREIGN KEY (type_id) REFERENCES Type_animals(type_id)
+    );
+CREATE TABLE Horses (
+	horse_id INT PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(30) NOT NULL,
+	commands VARCHAR(300),
+	date_of_birth DATE,
+	type_id INT,
+	FOREIGN KEY (type_id) REFERENCES Type_animals(type_id)
+    );
+CREATE TABLE Donkeys (
+	donkey_id INT PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(30) NOT NULL,
+	commands VARCHAR(300),
+	date_of_birth DATE,
+	type_id INT,
+	FOREIGN KEY (type_id) REFERENCES Type_animals(type_id)
+    );
+CREATE TABLE Camels (
+	camel_id INT PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(30) NOT NULL,
+	commands VARCHAR(300),
+	date_of_birth DATE,
+	type_id INT,
+	FOREIGN KEY (type_id) REFERENCES Type_animals(type_id)
+    );
+INSERT INTO Type_animals (type)    
+	VALUES 
+		('Pets'), 
+		('PackAnimal');
+INSERT INTO Cats (name, commands, date_of_birth, type_id)
+	VALUES
+		('Barsik', 'Sit, stay, come here', '2022-05-12', 1),
+        ('Pushok', 'Come here, Go away, Go to eat', '2023-12-25', 1);
+INSERT INTO Dogs (name, commands, date_of_birth, type_id)
+	VALUES
+		('Bobik', 'Sit, stay, come here', '2020-04-22', 1),
+        ('Reks', 'Freez, Sit, Run', '2023-12-25', 1); 
+INSERT INTO Humsters (name, commands, date_of_birth, type_id)
+	VALUES
+		('Lord', NULL, '2023-12-10', 1),
+        ('Markiz', NULL, '2023-11-24', 1);
+INSERT INTO Horses (name, commands, date_of_birth, type_id)
+	VALUES
+		('Miledy', 'Stay, Go, Run', '2019-04-12', 2),
+        ('Cesar', 'Stay, Go, Run', '2018-10-13', 2);
+INSERT INTO Donkeys (name, commands, date_of_birth, type_id)
+	VALUES
+		('Korzhik', 'Stay, Go, Eat', '2015-05-10', 2),
+        ('Parnas', 'Stay, Go, Eat', '2016-03-08', 2);
+INSERT INTO Camels (name, commands, date_of_birth, type_id)
+	VALUES
+		('Halif', 'Stay, Go', '2019-05-11', 2),
+        ('Aladdin', 'Eat, Do not Eat', '2016-07-18', 2);    
+DROP TABLE Camels;
+SELECT name, commands, date_of_birth, type_id FROM Horses
+UNION ALL SELECT name, commands, date_of_birth, type_id FROM Donkeys;
+CREATE TABLE Молодые_животные
+AS ((SELECT name, commands, date_of_birth, type_id, TIMESTAMPDIFF(MONTH, date_of_birth, CURDATE()) AS Возраст FROM Cats
+			WHERE date_of_birth BETWEEN DATE_SUB(CURDATE(), INTERVAL 3 YEAR) AND DATE_SUB(CURDATE(), INTERVAL 1 YEAR)) 
+         UNION ALL SELECT  name, commands, date_of_birth, type_id, TIMESTAMPDIFF(MONTH, date_of_birth, CURDATE()) AS Возраст from Dogs
+         WHERE date_of_birth BETWEEN DATE_SUB(CURDATE(), INTERVAL 3 YEAR) AND DATE_SUB(CURDATE(), INTERVAL 1 YEAR))
+         UNION ALL SELECT  name, commands, date_of_birth, type_id, TIMESTAMPDIFF(MONTH, date_of_birth, CURDATE()) AS Возраст from Humsters
+         WHERE date_of_birth BETWEEN DATE_SUB(CURDATE(), INTERVAL 3 YEAR) AND DATE_SUB(CURDATE(), INTERVAL 1 YEAR)
+         UNION ALL SELECT  name, commands, date_of_birth, type_id, TIMESTAMPDIFF(MONTH, date_of_birth, CURDATE()) AS Возраст from Horses
+         WHERE date_of_birth BETWEEN DATE_SUB(CURDATE(), INTERVAL 3 YEAR) AND DATE_SUB(CURDATE(), INTERVAL 1 YEAR)
+         UNION ALL SELECT  name, commands, date_of_birth, type_id, TIMESTAMPDIFF(MONTH, date_of_birth, CURDATE()) AS Возраст from Donkeys
+         WHERE date_of_birth BETWEEN DATE_SUB(CURDATE(), INTERVAL 3 YEAR) AND DATE_SUB(CURDATE(), INTERVAL 1 YEAR);
+
+CREATE TABLE общая_таблица AS
+SELECT *, 'Cats' AS Из_таблицы FROM Cats
+UNION
+SELECT *, 'Dogs' AS Из_таблицы FROM Dogs
+UNION
+SELECT *, 'Humsters' AS Из_таблицы FROM Humsters
+UNION
+SELECT *, 'Horses' AS Из_таблицы FROM Horses
+UNION
+SELECT *, 'Donkeys' AS Из_таблицы FROM Donkeys;
